@@ -9,13 +9,13 @@
   <a href="https://youtu.be/F3Tsls_ypUU"><img src="https://img.shields.io/badge/YouTube-Video-ff0000.svg" alt="YouTube"></a> -->
 </div>
 
-<!-- <div align="center">
+<div align="center">
   <img src="IMAGE/motivations.png" width="90%">
 </div>
 <div align="center">
-  <img src="IMAGE/Overview.png" width="90%"> 
+  <img src="IMAGE/partitioning.png" width="90%"> 
 </div>
--->
+
 ## Abstract
 
 
