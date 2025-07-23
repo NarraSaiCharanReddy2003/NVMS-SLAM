@@ -10,10 +10,10 @@
 </div>
 
 <div align="center">
-  <img src="IMAGE/motivations.png" width="90%">
+  <img src="IMAGE/motivations.png" width="70%">
 </div>
 <div align="center">
-  <img src="IMAGE/partitioning.png" width="90%"> 
+  <img src="IMAGE/partitioning.png" width="70%"> 
 </div>
 
 ## Abstract
