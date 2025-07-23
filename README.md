@@ -51,13 +51,13 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 <div align="center">
   <img src="IMAGE/Simulated.png" width="90%">
 </div>
-Download our test bags here: [geogle](https://drive.google.com/drive/folders/1iaKaGEEDXGvJZKw0zyqs2RxRnA0hLK1N?usp=sharing).
+Download our test bags here: [geogle](https://drive.google.com/drive/folders/1iaKaGEEDXGvJZKw0zyqs2RxRnA0hLK1N).
 
 ### 4.2 Real-world Dataset
 <div align="center">
   <img src="IMAGE/Real-world.png" width="90%"> 
 </div>
-Download our test bags here: [geogle](https://drive.google.com/drive/folders/1TYzT7nnJ6DlOu12cMFRslhtsvF8Fu-dj?usp=sharing).
+Download our test bags here: [geogle](https://drive.google.com/drive/folders/1TYzT7nnJ6DlOu12cMFRslhtsvF8Fu-dj).
 
 ### 5. Example results 
 
